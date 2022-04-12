@@ -1,7 +1,4 @@
 from django.db import models
-
-# Create your models here.
-
 from dataclasses import dataclass, field
 from matplotlib.style import available
 import numpy as np
@@ -30,8 +27,6 @@ class Knigt:
     moves: ChessBoard
     last_moved: int = 0
     value: int = 2
-    x: int = 0
-    y: int = 0
     def __init__(self,init_x = 0, init_y = 0):
         self.x = init_x
         self.y = init_y
@@ -54,8 +49,6 @@ class Pawn:
     moves: ChessBoard
     last_moved: int = 0
     value: int = 1
-    x: int = 0
-    y: int = 0
     def __init__(self,init_x = 0, init_y = 0):
         self.x = init_x
         self.y = init_y
@@ -69,6 +62,7 @@ class Pawn:
         else:
             self.moves.board[self.x][1+self.y] = 0
             if (1==2):
+                # implemented once teams are defined
                 print("passe")
     def move(self,move_to_x,move_to_y,turn_no):
         self.x = move_to_x
@@ -81,8 +75,6 @@ class Rook:
     moves: ChessBoard
     last_moved: int = 0
     value: int = 4
-    x: int = 0
-    y: int = 0
     def __init__(self,init_x = 0, init_y = 0):
         self.x = init_x
         self.y = init_y
@@ -109,8 +101,6 @@ class Bishop:
     moves: ChessBoard
     last_moved: int = 0
     value: int = 9
-    x: int = 0
-    y: int = 0
     def __init__(self,init_x = 0, init_y = 0):
         self.x = init_x
         self.y = init_y
@@ -144,8 +134,6 @@ class Queen:
     moves: ChessBoard
     last_moved: int = 0
     value: int = 9
-    x: int = 0
-    y: int = 0
     def __init__(self,init_x = 0, init_y = 0):
         self.x = init_x
         self.y = init_y
@@ -176,11 +164,11 @@ class Queen:
 
 @dataclass
 class King:
+    # Not done
+    # other pieces are(more or less functional)
     moves: ChessBoard
     last_moved: int = 0
     value: int = 1
-    x: int = 0
-    y: int = 0
     def __init__(self,init_x = 0, init_y = 0):
         self.x = init_x
         self.y = init_y
