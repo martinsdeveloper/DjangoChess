@@ -179,15 +179,14 @@ class King:
             # castling when team added
             print("castling")
         else:
+            # check from team movement list if position not in danger + check if attack blocked by a teammate
             if self.x > 0 :
-                # kreisaa
                 if self.y - 1 >= 0 :
                     self.moves.board[self.x-1][self.y-1] = 0
                 self.moves.board[self.x-1][self.y] = 0
                 if self.y + 1 < 8 :
                     self.moves.board[self.x-1][self.y+1] = 0
             if self.x < 8 :
-                # labaa
                 if self.y - 1 >= 0 :
                     self.moves.board[self.x][self.y-1] = 0
                 self.moves.board[self.x][self.y] = 0
